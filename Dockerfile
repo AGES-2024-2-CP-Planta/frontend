@@ -1,15 +1,24 @@
-FROM node:8.11-alpine
+# Use uma imagem base oficial do Node.js 18
+FROM node:18-alpine
 
-WORKDIR /usr/src/app
+# Defina o diretório de trabalho dentro do container
+WORKDIR /app
 
-ARG NODE_ENV
-ENV NODE_ENV $NODE_ENV
+# Copie o package.json e o package-lock.json para o diretório de trabalho
+COPY package*.json ./
 
-COPY package*.json /usr/src/app/
-RUN npm install
+# Instale as dependências do projeto
+# Utilize --only=production para instalar apenas as dependências de produção
+RUN npm install --only=production
 
-COPY . /usr/src/app
+# Copie todo o código fonte do projeto para o diretório de trabalho
+COPY . .
 
-ENV PORT 5000
-EXPOSE $PORT
-CMD [ "npm", "start" ]
+# Compila o projeto Next.js
+RUN npm run build
+
+# Exponha a porta padrão do Next.js (geralmente 3000)
+EXPOSE 3000
+
+# Comando para iniciar a aplicação Next.js em modo de produção
+CMD ["npm", "run", "start"]
