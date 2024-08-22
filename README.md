@@ -29,7 +29,7 @@
 └── tsconfig.json                  # Configurações do TypeScript
 
 ```
-### Project Structure Alognside Base + Example files
+### Project Structure Alongside Base + Example files
 ```
 /frontend
 ├── public/                        # Arquivos estáticos como imagens e ícones
