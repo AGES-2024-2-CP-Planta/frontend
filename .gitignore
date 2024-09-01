@@ -1,7 +1,7 @@
 # custom 
 zz/
-public/
 yarn.lock
+package-lock.json
 
 # Logs
 logs
