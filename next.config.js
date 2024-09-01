@@ -8,7 +8,6 @@ module.exports = {
         domains: ['example.com'],
     },
     webpack: (config, { isServer }) => {
-        // Custom Webpack configurations
         return config;
     },
 };
