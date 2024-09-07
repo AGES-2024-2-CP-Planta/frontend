@@ -4,7 +4,6 @@
   "description": "Frontend for CPPlanta project",
   "version": "1.0.0",
   "license": "MIT",
-  "type": "module",
   "keywords": [
     "nextjs",
     "typescript",
