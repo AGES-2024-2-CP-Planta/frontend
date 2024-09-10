@@ -12,15 +12,24 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
-    "plugin:jsx-a11y/recommended",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "rules": {
     "quotes": ["error", "single"],
-    "linebreak-style": ["error", "unix"],
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "none",
+        "printWidth": 80
+      },
+      { "usePrettierrc": true }
+    ],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
