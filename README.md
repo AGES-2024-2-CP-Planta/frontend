@@ -1,95 +1,134 @@
-### Haha
-### General project structure
-```
-/frontend
-├── public/                        # Pasta para arquivos estáticos como imagens e ícones
-├── src/
-│   ├── domain/                    # Modelos de dados e lógica de domínio
-│   │   ├── models/                # Modelos de dados (entidades)
-│   │   └── repositories/          # Interfaces de repositórios para abstrair a persistência
-│   ├── application/               # Lógica de aplicação, casos de uso, e orquestração
-│   │   ├── services/              # Serviços que contêm lógica de negócios
-│   │   └── dtos/                  # Objetos de Transferência de Dados (DTOs)
-│   ├── interfaces/                # Camada de apresentação (views, controllers)
-│   │   ├── components/            # Componentes reutilizáveis do React
-│   │   ├── views/                 # Componentes que correspondem às "views" no MVC
-│   │   ├── controllers/           # Lógica de controle para manipular dados entre views e models
-│   │   ├── pages/                 # Páginas do Next.js e roteamento, cada arquivo representa uma rota
-│   │   ├── styles/                # Arquivos de estilo usando Tailwind CSS
-│   │   └── utils/                 # Utilidades diversas
-│   ├── infrastructure/            # Implementações concretas de repositórios, integrações externas
-│   └── tests/                     # Testes unitários e de integração
-│       ├── unit/                  # Testes unitários para lógica de negócios, componentes, etc.
-│       └── integration/           # Testes de integração para verificar o comportamento conjunto de componentes
-├── .env                           # Arquivos de variáveis de ambiente
-├── .eslintrc.json                 # Configurações do ESLint
-├── .prettierrc                    # Configurações do Prettier
-├── jest.config.js                 # Configurações do Jest para TDD
-├── next.config.js                 # Configurações do Next.js
-├── package.json
-└── tsconfig.json                  # Configurações do TypeScript
+# **Configurações do Projeto - CP-Planta**
 
-```
-### Project Structure Alongside Base + Example files
-```
-/frontend
-├── public/                        # Arquivos estáticos como imagens e ícones
-│   └── favicon.ico
-├── src/
-│   ├── domain/                    # Camada de domínio (modelos, interfaces de repositórios)
-│   │   ├── models/
-│   │   │   └── User.ts            # Definição do modelo de usuário
-│   │   └── repositories/
-│   │       └── UserRepository.ts  # Interface do repositório de usuário
-│   ├── application/               # Camada de aplicação (serviços, DTOs)
-│   │   ├── services/
-│   │   │   └── UserService.ts     # Serviço de usuário
-│   │   └── dtos/
-│   │       └── UserDTO.ts         # Objeto de Transferência de Dados de Usuário
-│   ├── interfaces/                # Camada de interface (views, controladores)
-│   │   ├── components/
-│   │   │   └── UserProfile.tsx    # Componente React para o perfil do usuário
-│   │   ├── views/
-│   │   │   └── UserView.tsx       # Componente de visualização para a página de usuário
-│   │   ├── controllers/
-│   │   │   └── UserController.ts  # Controlador de usuário para lidar com requisições de API
-│   │   ├── pages/                 # Páginas e roteamento do Next.js
-│   │   │   └── user/
-│   │   │       └── [id].tsx       # Rota dinâmica para a página de usuário
-│   │   ├── styles/
-│   │   │   └── globals.css        # Estilos globais usando Tailwind CSS
-│   │   └── utils/
-│   │       └── formatDate.ts      # Função utilitária para formatação de datas
-│   ├── infrastructure/            # Camada de infraestrutura (implementações de repositórios, integrações)
-│   │   └── repositories/
-│   │       └── InMemoryUserRepository.ts  # Implementação do repositório de usuário em memória
-│   └── tests/                     # Testes (testes unitários e de integração)
-│       ├── unit/
-│       │   └── UserService.spec.ts  # Teste unitário para UserService
-│       └── integration/
-│           └── UserController.spec.ts  # Teste de integração para UserController
-├── .env                           # Arquivos de variáveis de ambiente
-├── .eslintrc.json                 # Configuração do ESLint
-├── .prettierrc                    # Configuração do Prettier
-├── jest.config.js                 # Configuração do Jest
-├── next.config.js                 # Configuração do Next.js
-├── package.json                   # Dependências e scripts do Node.js
-└── tsconfig.json                  # Configuração do TypeScript
-```
-### Node Express template project
+## Sumário
 
-This project is based on a GitLab [Project Template](https://docs.gitlab.com/ee/gitlab-basics/create-project.html).
+- [Configurações Gerais](#configurações-gerais)
+  - [Instalação do Ambiente de Desenvolvimento](#instalação-do-ambiente-de-desenvolvimento)
+- [Frontend](#frontend)
+  - [Configurando o Frontend](#configurando-o-frontend)
+  - [Rodando o Frontend](#rodando-o-frontend)
+  - [Acessando o Frontend](#postmaninsomnia)
+- [Extras](#extras)
+  - [Integração com o Backend](#integração-com-o-backend)
+- [Estou com pressa: Resumo](#resumo-dos-passos)
 
-Improvements can be proposed in the [original project](https://gitlab.com/gitlab-org/project-templates/express).
+> **Observação:** Consulte a documentação do projeto no menu [Instalação](https://tools.ages.pucrs.br/cp-planta/wiki/-/wikis/instalacao) para mais detalhes sobre o processo.
 
-### CI/CD with Auto DevOps
+## **Configurações Gerais**
 
-This template is compatible with [Auto DevOps](https://docs.gitlab.com/ee/topics/autodevops/).
+### **Instalação do Ambiente de Desenvolvimento**
 
-If Auto DevOps is not already enabled for this project, you can [turn it on](https://docs.gitlab.com/ee/topics/autodevops/#enabling-auto-devops) in the project settings.
+Antes de configurar os ambientes, siga estas instruções gerais:
 
-### Developing with Gitpod
+- **VSCode**: Baixe [aqui](https://code.visualstudio.com/download).
 
-This template has a fully-automated dev setup for [Gitpod](https://docs.gitlab.com/ee/integration/gitpod.html).
+- **Plugins recomendados para VSCode**:  
+  - ESLint
+  - Prettier
+  - Jest
+  - Jest Runner
+  - GitHub Copilot (opcional).
 
-If you open this project in Gitpod, you'll get all Node dependencies pre-installed and Express will open a web preview.
+- **NodeJS**: Verifique se o Node está instalado:
+  ```bash
+  node --version
+  ```
+  Caso não esteja, siga o [tutorial oficial](https://nodejs.org/en/download/).
+
+- **NPM**: O NPM já vem com o NodeJS. Verifique a versão:
+  ```bash
+  npm --version
+  ```
+- **YARN**: Caso queira utilizar o yarn, precisa verificar se está instalado:
+  ```bash
+  yarn --version
+  ```
+  para instalar: 
+    ```bash
+  npm install --global yarn
+  ```
+---
+
+# **Frontend**
+
+## **Configurando o Frontend**
+
+1. **Instalar Node (versão 18.0 ou superior)**:
+   - Para Windows: [Download Node.js](https://nodejs.org/en/download/package-manager/)
+   - Para Linux:
+     ```bash
+     sudo apt install nodejs
+     ```
+
+2. **Clonar o repositório do Frontend**:
+   ```bash
+   git clone https://tools.ages.pucrs.br/cp-planta/frontend.git
+   ```
+
+3. **Instalar dependências**:
+   - No terminal, dentro do diretório do projeto:
+     ```bash
+     npm install
+     ```
+     usando yarn:
+     ```bash
+     yarn install
+     ```
+
+## **Rodando o Frontend**
+
+### **Modo de Desenvolvimento**:
+
+- Para rodar o frontend em modo de desenvolvimento:
+  ```bash
+  npm run dev
+  ```
+  usando yarn:
+  ```bash
+  yarn dev
+  ```
+
+- O projeto estará disponível em:  
+  [http://localhost:3001](http://localhost:3001)
+
+### **Postman/Insomnia**:
+
+- Teste suas APIs usando o [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/download).
+
+---
+
+## **Extras**
+
+### Integração com o Backend
+- Em desenvolvimento
+
+---
+## **Resumo dos Passos**
+
+### 1. **Configurações Gerais**
+
+- **Instalar VSCode** e seus **plugins recomendados** (ESLint, Prettier, Jest, etc).
+- **Instalar NodeJS e NPM**, verificar suas versões. 
+- **Instalar Yarn**, se preferir utilizá-lo.
+
+### 2. **Configurar o Frontend**
+
+- **Clonar o repositório** do frontend.
+- **Instalar as dependências** com `npm install` ou `yarn install`.
+
+### 3. **Rodar o Frontend**
+
+- **Modo de desenvolvimento**: Execute `npm run dev` ou `yarn dev`.
+- O frontend estará acessível em:  
+  [http://localhost:3001](http://localhost:3001)
+
+### 4. **Teste com Postman ou Insomnia**
+
+- Teste as APIs usando **Postman** ou **Insomnia** para garantir a integração e funcionalidade.
+
+### 5. **Integração com o Backend**
+
+- Em desenvolvimento. Mais detalhes serão fornecidos conforme a implementação avança.
+
+---
+
