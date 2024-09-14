@@ -7,14 +7,12 @@ type ButtonOperationProps = {
 
 export default function ButtonOperation({title, description}: ButtonOperationProps) {
     return (
-        <div>
-            <button className="border-lime-900 border-2 rounded  w-1/4 h-auto flex">
-                <img src={AddIcon.src} alt='Add Icon'/>
-                <div className="flex-col text-start	">
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                </div>
-            </button>
-        </div>
+        <button className="border-[#006F48] border-2 rounded w-1/4 h-24 flex justify-start p-6 gap-x-4">
+            <img className='w-6' src={AddIcon.src} alt='Add Icon'/>
+            <div className="flex flex-col text-start gap-y-1">
+                <h3 className='text-lg'>{title}</h3>
+                <p className='text-sm'>{description}</p>
+            </div>
+        </button>
     )
 }
