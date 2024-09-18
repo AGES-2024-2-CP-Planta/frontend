@@ -1,17 +1,13 @@
 import Link from 'next/link';
 import AddIcon from '../../icons/add-icon.svg';
 
-type ButtonOperationProps = {
+type Props = {
   title: string;
   description: string;
   href: string;
 };
 
-export default function ButtonOperation({
-  title,
-  description,
-  href
-}: ButtonOperationProps) {
+export default function ButtonOperation({ title, description, href }: Props) {
   return (
     <Link
       href={href}

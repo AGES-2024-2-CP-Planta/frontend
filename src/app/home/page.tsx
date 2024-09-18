@@ -1,4 +1,4 @@
-import ButtonOperation from '../components/buttons/operation/button_operation';
+import ButtonOperation from '../../components/buttons/operation/button-operation';
 
 export default function Home() {
   return (
